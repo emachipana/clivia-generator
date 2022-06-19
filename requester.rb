@@ -67,4 +67,17 @@ module Requester
     scores.reverse
   end
 
+  def generateScoreTable(scores)
+    Terminal::Table.new title: "Top Score".colorize(color: :red, mode: :bold),
+                        headings: ["Name".colorize(color: :green, mode: :bold),
+                                   "Scores".colorize(color: :green, mode: :bold)] do |row|
+      row.style = { border_x: "-".colorize(color: :yellow, mode: :bold), border_i: "." }
+      scores.each do |score|
+        row.add_row [score[:name].colorize(mode: :bold),
+                     score[:score].to_s.colorize(mode: :bold, color: :yellow)]
+      end
+      row.align_column(2, :center)
+    end
+  end
+
 end
