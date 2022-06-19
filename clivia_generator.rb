@@ -70,4 +70,16 @@ class CliviaGenerator
     end
   end
 
+  def save(data)
+    file = File.read(filename)
+    if file.empty?
+      data = [data].to_json
+      File.write(filename, data)
+    else
+      scores = JSON.parse(File.read(filename))
+      scores.push(data)
+      File.write(filename, scores.to_json)
+    end
+  end
+
 end
