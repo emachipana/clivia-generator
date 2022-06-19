@@ -26,4 +26,12 @@ module Fetch
     end
   end
 
+  def self.load_questions
+    response = get("amount=10")
+    raise HTTParty::ResponseError, response unless response.code == 200
+
+    data = JSON.parse(response.body, symbolize_names: true)
+    decode_questions(data[:results])
+  end
+
 end
