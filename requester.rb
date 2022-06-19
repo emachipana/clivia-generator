@@ -17,4 +17,14 @@ module Requester
     end
     input
   end
+
+  def isEmpty(input)
+    while input.empty?
+      puts "Cannot be blank".colorize(color: :red, background: :light_white, mode: :bold)
+      print "> ".colorize(mode: :bold, color: :yellow)
+      input = gets.chomp
+    end
+    input
+  end
+  
 end
