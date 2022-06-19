@@ -82,4 +82,10 @@ class CliviaGenerator
     end
   end
 
+  def print_scores
+    data = parse_scores(filename)
+    data = orderByScores(data) unless data.nil?
+    puts generateScoreTable(data) unless data.nil?
+  end
+
 end
