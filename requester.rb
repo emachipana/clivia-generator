@@ -9,7 +9,7 @@ module Requester
   def get_inputs(options)
     print "> ".colorize(mode: :bold, color: :yellow)
     input = gets.chomp
-    input = empty(input)
+    input = isEmpty(input)
     until options.include?(input)
       puts "Please type a valid option".colorize(color: :red, background: :light_white, mode: :bold)
       print "> ".colorize(mode: :bold, color: :yellow)

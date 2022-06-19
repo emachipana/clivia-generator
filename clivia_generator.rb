@@ -7,8 +7,8 @@ require "terminal-table"
 
 class CliviaGenerator
   include Requester
-  include Presenter
-  include Queries
+  include Display
+  include Fetch
 
   attr_accessor :filename, :score
   def initialize
@@ -87,5 +87,7 @@ class CliviaGenerator
     data = orderByScores(data) unless data.nil?
     puts generateScoreTable(data) unless data.nil?
   end
-
 end
+
+trivia = CliviaGenerator.new
+trivia.start
