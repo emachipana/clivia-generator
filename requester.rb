@@ -54,4 +54,12 @@ module Requester
     answers.sort_by! { rand }
   end
 
+  def parse_scores(filename)
+    if File.read(filename).empty? then puts "No records Please first play".colorize(color: :red,
+                                                                                    background: :light_white, mode: :bold) else
+                                                                                                                             JSON.parse(
+                                                                                                                               File.read(filename), symbolize_names: true
+                                                                                                                             ) end
+  end
+
 end
