@@ -26,5 +26,19 @@ module Requester
     end
     input
   end
-  
+
+  def save
+    puts "-" * 50
+    puts "Do you want to save your score? (y/n)".colorize(mode: :bold, color: :green)
+    confirm = get_inputs("Y y N n")
+    if confirm.upcase == "Y"
+      puts "Type the name to assign to the score".colorize(mode: :bold, color: :green)
+      print "> ".colorize(mode: :bold, color: :yellow)
+      name = gets.chomp
+      name = name.empty? ? "Anonymous" : name.capitalize
+      data = { name: name, score: score }
+      save(data)
+    end
+  end
+
 end
