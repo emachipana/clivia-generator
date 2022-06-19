@@ -62,4 +62,9 @@ module Requester
                                                                                                                              ) end
   end
 
+  def orderByScores(scores)
+    scores = scores.sort_by { |score| score[:score] }
+    scores.reverse
+  end
+
 end
